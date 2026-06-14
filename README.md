@@ -51,6 +51,8 @@ git push
 
 ### Step 2: Pull changes on PythonAnywhere (Bash console)
 
+🖥️ [Open PythonAnywhere Console](https://www.pythonanywhere.com/user/arsayeem/consoles/47145826/)
+
 ```bash
 cd ~/weather-app-django
 git pull
