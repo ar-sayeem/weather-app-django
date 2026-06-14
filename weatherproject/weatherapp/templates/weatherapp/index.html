@@ -1,0 +1,53 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    {% if image_url %}
+    <img src="{{ image_url }}" alt="City Image" class="city-bg" />
+    {% endif %}
+
+    <div class="container">
+      <h1>Weather App</h1>
+      <form method="POST">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="city"
+          placeholder="Enter city name..."
+          required
+        />
+        <button type="submit" class="btn">Search</button>
+      </form>
+
+      {% if error %}
+      <p style="color: red; margin-top: 1rem">{{ error }}</p>
+      {% else %}
+      <div class="weather">
+        <div class="left">
+          <h2 class="temp">{{ temp }}&deg;C</h2>
+          <h3 class="city">{{ city }}</h3>
+        </div>
+        <div class="right">
+          <div class="icon">
+            <img
+              src="https://openweathermap.org/img/wn/{{ icon }}@2x.png"
+              alt="Weather Icon"
+              class="weather-icon"
+            />
+          </div>
+          <div class="condition">
+            <p>{{ description }}</p>
+            <p>{{ day }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
