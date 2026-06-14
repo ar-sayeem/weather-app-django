@@ -2,6 +2,12 @@
 
 A Django weather app that shows current weather and city images.
 
+## Live Website
+
+🌐 [https://arsayeem.pythonanywhere.com](https://arsayeem.pythonanywhere.com)
+
+> ⚠️ **Personal Reminder:** Log in to [PythonAnywhere](https://www.pythonanywhere.com) once every month and click **"Run until 1 month from today"** to keep the site alive. They will send an email reminder a week before it expires.
+
 ## Features
 
 - Current temperature, humidity, wind speed
