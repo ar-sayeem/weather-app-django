@@ -10,9 +10,10 @@ A Django weather app that shows current weather and city images.
 
 ## Features
 
-- Current temperature, humidity, wind speed
+- Current temperature, humidity, wind speed, feels like
 - City background images via Unsplash
 - Search any city worldwide
+- Responsive design
 
 ## Tech Stack
 
@@ -23,7 +24,43 @@ A Django weather app that shows current weather and city images.
 ## Setup
 
 1. Clone the repo
-2. Create virtual environment
-3. Install requirements: `pip install -r requirements.txt`
-4. Create `.env` file with your API keys
-5. Run: `python manage.py runserver`
+2. Create virtual environment: `python -m venv venv`
+3. Activate venv: `.\venv\Scripts\activate`
+4. Install requirements: `pip install -r requirements.txt`
+5. Create `.env` file with your API keys:
+
+```env
+SECRET_KEY=your_django_secret_key
+WEATHER_API_KEY=your_openweathermap_key
+UNSPLASH_ACCESS_KEY=your_unsplash_key
+```
+
+6. Run migrations: `python manage.py migrate`
+7. Run server: `python manage.py runserver`
+
+## How to Update the Live Website
+
+### Step 1: Push changes to GitHub (Local)
+
+```powershell
+cd C:\GitHub\ar-sayeem\weather
+git add .
+git commit -m "your update message"
+git push
+```
+
+### Step 2: Pull changes on PythonAnywhere (Bash console)
+
+```bash
+cd ~/weather-app-django
+git pull
+cd weatherproject
+python manage.py collectstatic
+```
+
+### Step 3: Reload the website
+
+- Go to [PythonAnywhere Web tab](https://www.pythonanywhere.com/user/arsayeem/webapps/)
+- Click the green **Reload** button
+
+That's it — your live site is updated! ✅
