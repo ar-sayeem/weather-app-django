@@ -193,9 +193,12 @@ h1 {
 .note {
   margin-top: 1rem;
   font-size: 11px;
-  opacity: 0.6;
   text-align: center;
-  color: white;
+  color: #ff6b6b;
+  background: rgba(255, 80, 80, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
 }
 
 @media only screen and (max-width: 700px) {
