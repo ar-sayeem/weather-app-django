@@ -15,6 +15,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem 1rem;
 }
 
 .city-bg {
@@ -24,6 +25,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: -2;
 }
 
@@ -33,12 +35,13 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   z-index: -1;
 }
 
 .container {
-  width: 480px;
+  width: 100%;
+  max-width: 500px;
   padding: 2rem;
   z-index: 1;
 }
@@ -61,7 +64,6 @@ h1 {
 .search-bar input {
   flex: 1;
   padding: 0.8rem 1.2rem;
-  border: none;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -69,6 +71,7 @@ h1 {
   font-size: 15px;
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  min-width: 0;
 }
 
 .search-bar input::placeholder {
@@ -85,6 +88,8 @@ h1 {
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn:hover {
@@ -108,12 +113,19 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.city-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .city-name {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  word-break: break-word;
 }
 
 .date {
@@ -123,7 +135,7 @@ h1 {
 }
 
 .description {
-  font-size: 16px;
+  font-size: 15px;
   text-transform: capitalize;
   margin-top: 6px;
   opacity: 0.9;
@@ -131,6 +143,7 @@ h1 {
 
 .temp-info {
   text-align: center;
+  flex-shrink: 0;
 }
 
 .weather-icon {
@@ -154,6 +167,7 @@ h1 {
 .weather-details {
   display: flex;
   justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .detail-item {
@@ -169,14 +183,15 @@ h1 {
 }
 
 .detail-label {
-  font-size: 11px;
+  font-size: 10px;
   opacity: 0.7;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .detail-value {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -201,19 +216,97 @@ h1 {
   padding: 8px 12px;
 }
 
-@media only screen and (max-width: 700px) {
+.attribution {
+  margin-top: 0.5rem;
+  font-size: 11px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.attribution a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Tablet */
+@media only screen and (max-width: 768px) {
   .container {
-    width: 95%;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .city-name {
+    font-size: 1.5rem;
+  }
+
+  .temp {
+    font-size: 2.2rem;
+  }
+
+  .weather-icon {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  body {
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
     padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-bar input,
+  .btn {
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .weather-card {
+    padding: 1.2rem;
   }
 
   .weather-top {
     flex-direction: column;
     text-align: center;
-    gap: 1rem;
   }
 
   .city-name {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .temp {
+    font-size: 2.5rem;
+  }
+
+  .detail-label {
+    font-size: 9px;
+  }
+
+  .detail-value {
+    font-size: 0.9rem;
   }
 }
