@@ -55,7 +55,11 @@ def home(request):
     feels_like = round(weather_data['main']['feels_like'])
     humidity = weather_data['main']['humidity']
     wind_speed = round(weather_data['wind']['speed'])
-    day = datetime.datetime.today().strftime('%A, %B %d, %Y')
+
+    # City local time using timezone offset from API
+    timezone_offset = weather_data['timezone']
+    city_time = datetime.datetime.utcnow() + datetime.timedelta(seconds=timezone_offset)
+    day = city_time.strftime('%A, %B %d, %Y')
 
     return render(request, 'weatherapp/index.html', {
         'description': description,
